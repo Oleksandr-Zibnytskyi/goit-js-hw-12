@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -76,7 +80,7 @@ img {
   2px 4px 16px 0px rgba(54, 54, 54, 0.3);
 }
 
-.search-btn {
+.button {
   width: 91px;
   height: 40px;
   border-radius: 8px;
@@ -88,7 +92,7 @@ img {
   transition: 0.3s;
   }
   
-  .search-btn:hover{
+  .button:hover{
     box-shadow: 0px 1px 2px 0px rgba(54, 54, 54, 0.3),
               1px 2px 4px 0px rgba(54, 54, 54, 0.3),
               2px 4px 8px 0px rgba(54, 54, 54, 0.3),
@@ -98,7 +102,7 @@ img {
   }
 
 
-  .load-more-btn {
+  .btn-load-more {
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -117,7 +121,7 @@ img {
   transition: 0.3s;
   }
 
-  .load-more-btn:hover{
+  .btn-load-more:hover{
     box-shadow: 0px 1px 2px 0px rgba(54, 54, 54, 0.3),
               1px 2px 4px 0px rgba(54, 54, 54, 0.3),
               2px 4px 8px 0px rgba(54, 54, 54, 0.3),
@@ -138,7 +142,7 @@ img {
   margin-bottom: 20px;
 }
 
-.gallery-image {
+.gallery-img {
   width: 300px;
   height: 200px;
 }
@@ -153,66 +157,45 @@ img {
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
+.gal-link {
+color: #000;
+font-size: 14px;
+}
 
-.gallery-item-info {
+.gal-span {
+  font-weight: 700;
   display: flex;
+  font-size: 14px;
   justify-content: space-around;
   margin: 0;
   height: 44px;
+  color: #000000;
 }
 
-.item-info-atr {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+.gal-list {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 10px;
 }
-
-h3 {
-  margin: 0;
-  font-size: 16px;
-}
-
-p {
-  margin: 0;
-}
-
 
 
 .hidden {
   display: none;
 }
 
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-}
 
 .loader {
-
+  margin-left: 700px;
   width: 48px;
   height: 48px;
-  border-width: 3px;
-  border-style: dashed solid solid dotted;
-  border-color: #FF3D00 #FF3D00 transparent #FF3D00;
+  border: 5px solid #110e0e;
+  border-bottom-color: grey;
   border-radius: 50%;
   display: inline-block;
-  position: relative;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.loader::after {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  left: 20px;
-  top: 31px;
-  border: 10px solid transparent;
-  border-right-color: #FF3D00;
-  transform: rotate(-40deg);
 }
 
 @keyframes rotation {

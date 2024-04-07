@@ -1,28 +1,22 @@
-import axios from 'axios';
-import iziToast from 'izitoast';
+import axios from "axios";
 
-export async function fetchImages(searchQueryResult, currentPage) {
-  try {
-    const BASE_URL = 'https://pixabay.com/api/';
-    const q = searchQueryResult;
-    const params = new URLSearchParams({
-      key: '9190280-87e8455cc30411d2efd850bc0',
-      q: q,
-      image_type: 'photo',
-      orientation: 'horizontal',
-      safesearch: true,
-      per_page: 15,
-      page: currentPage,
+const limit = 15;
+
+export const getPhoto = async (value, page = 1) => {
+    const KEY = "9190280-87e8455cc30411d2efd850bc0";
+    const url = await axios.get(`https://pixabay.com/api/`, {
+        params: {
+            key: KEY,
+            q: value,
+            image_type: 'photo',
+            orientation: 'horizontal',
+            safesearch: true,
+            per_page: limit,
+            page,
+        }
     });
-    const url = `${BASE_URL}?${params}`;
-    const res = await axios.get(url);
-    return res.data;
-  } catch (error) {
-    iziToast.error({
-      message: 'Server error!',
-      position: 'topRight',
-    });
-  }
+   
+    return url.data;
 }
 
 

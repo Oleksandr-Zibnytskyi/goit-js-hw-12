@@ -1,45 +1,30 @@
-import { gallery } from '../main';
-
-export function renderGallery(data) {
-  const createMarkup = data.hits
-    .map(hit => {
-      const {
-        id,
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      } = hit;
-      return `
-    <li class="gallery-item">
-        <a class="gallery-link" href="${largeImageURL}">
-          <img class="gallery-image" id=${id} src="${webformatURL}" alt="${tags}"/>
-        </a>
-        <div class="gallery-item-info">
-          <div class="item-info-atr">
-          <h3>Likes</h3>
-          <p>${likes}</p>
-          </div>
-          <div class="item-info-atr">
-          <h3>Views</h3>
-          <p>${views}</p>
-          </div>
-          <div class="item-info-atr">
-          <h3>Comments</h3>
-          <p>${comments}</p>
-          </div>
-          <div class="item-info-atr">
-          <h3>Downloads</h3>
-          <p>${downloads}</p>
-          </div>
-        </div>
-    </li>
-    `;
-    })
-    .join('');
-
-  gallery.insertAdjacentHTML('beforeend', createMarkup);
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+const gallery = document.querySelector('.gallery');
+export function imageTemplate(data) {
+  const markup = data
+  .map(
+    el => `<li class="gallery-item">
+  <a class="gallery-link" href="${el.largeImageURL}">
+    <img
+            src="${el.webformatURL}"
+            alt="${el.tags}"
+            width="360"
+            height="200"
+            class="gallery-img"
+        />
+        <ul class="gal-list">
+        <li class="gal-link"><span class="gal-span">Likes</span> ${el.likes}</li>
+        <li class="gal-link"><span class="gal-span">Views</span> ${el.views}</li>
+        <li class="gal-link"><span class="gal-span">Comments</span> ${el.comments}</li>
+        <li class="gal-link"><span class="gal-span">Downloads</span> ${el.downloads}</li>
+     </ul>
+  </a>
+</li>`).join("")
+gallery.insertAdjacentHTML('beforeend', markup);
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250
+});
+lightbox.refresh();
 }

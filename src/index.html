@@ -8,30 +8,24 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-      <form class="search-form" id="search-form">
-        <input
-          type="text"
-          class="input-form"
-          autocomplete="off"
-          name="query"
-          placeholder="      search images..."
-        />
-        <button type="submit" class="search-btn">Search</button>
-      </form>
 
-    <div>
-      <ul class="gallery"></ul>
-    </div>
-    <div class="bottom">
-      <button
-        type="submit"
-        class="load-more-btn is-hidden"
-        id="load-more-btn"
-      >
-        Load more
-      </button>
-      <div id="loader" class="loader is-hidden"></div>
-    </div>
+  <div class="container">
+    <form class="search-form" id="search-form">
+      <input
+      class="input-form"
+        type="text"
+        id="search-input"
+        name="query"
+        placeholder="Search images"
+      />
+      <button class="button" type="submit">Search</button>
+    </form>
+  </div>
+  <ul class="gallery"></ul>
+  <div class="loading"></div>
+  <span class="load-more"
+    ><button class="btn-load-more">Load More</button></span
+  >
 
 
     <script type="module" src="./main.js"></script>
